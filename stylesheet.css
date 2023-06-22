@@ -1,0 +1,47 @@
+    select {
+      color: #7B9EA8;
+      background-color: #000000;
+      border-color: #7B9EA8;
+    }
+    
+    button {
+      color: #7B9EA8;
+      background-color: #000000;
+      border-color: #7B9EA8;
+    }
+    
+    body {
+      background-color: #000000;
+      color: #7B9EA8;
+      text-align: center;
+    }
+    
+    table, td {
+      border: 1px solid #000000;
+    }
+    
+    td:hover {
+      background-color: #7B9EA8;
+      color: #000000;
+    }
+    
+    tr:hover {
+      background-color: #B5C9CF;
+      color: #000000; 
+    }
+    
+    th {
+      font-size: 30px;
+    }
+    
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td, th {
+      border: 1px solid #7B9EA8;
+      text-align: left;
+      padding: 8px;
+    }
