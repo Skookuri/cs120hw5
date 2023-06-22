@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <!--<script type="text/javascript" src="songlist.json"></script>-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <title>CS 120 HW 5</title>
+  <style>
+  
+  	select {
+    	color: #7B9EA8;
+        background-color: #000000;
+        border-color: #7B9EA8;
+    }
+    
+  	button {
+    	color: #7B9EA8;
+        background-color: #000000;
+        border-color: #7B9EA8;
+    }
+    
+    body {
+    	background-color: #000000;
+        color: #7B9EA8;
+        text-align: center;
+    }
+    
+  	table, td {
+  		border: 1px solid #000000;
+	}
+    
+    td:hover {
+    	background-color: #7B9EA8;
+        color: #000000;
+    }
+    
+    tr:hover {
+    	background-color: #ffcce6;
+        color: #000000; 
+    }
+    
+    th {
+    	font-size: 30px;
+    }
+    
+    table {
+    	font-family: arial, sans-serif;
+    	border-collapse: collapse;
+     	width: 100%;
+    }
+
+    td, th {
+    	border: 1px solid #7B9EA8;
+    	text-align: left;
+    	padding: 8px;
+    }
+
+
+  </style>
+</head>
+<body>
+  <select>
+    <option value="selectgenre">--SELECT GENRE--</option>
+    <!--<option value="mexicanindie">Mexican Indie</option>
+  	<option value="mexicanrock">Mexican Rock</option>
+  	<option value="sonoraindie">Sonora Indie</option>
+  	<option value="surfpunk">Surf Punk</option>
+    <option value="artpop">Art Pop</option>
+    <option value="electropop">Electropop</option>
+    <option value="escaperoom">Escape Room</option>
+    <option value="lapop">LA pop</option>
+    <option value="idolkayo">Idol Kayo</option>
+    <option value="jpop">J-Pop</option>
+    <option value="japanesenewwave">Japanese New Wave</option>
+  	<option value="kayokyoku">Kayokyoku</option>
+    <option value="technokayo">Techno Kayo</option>
+    <option value="filmi">Filmi</option>
+    <option value="desipop">Desi Pop</option>
+    <option value="classicbollywood">Classic Bollywood</option>
+    <option value="chutney">Chutney</option>
+    <option value="harekrishna">Hare Krishna</option>
+    <option value="modernbollywood">Modern Bollywood</option>
+    <option value="lata">Lata</option>
+    <option value="indianinstrumental">Indian Instrumental</option>-->
+  </select>
+  <br>
+  <br>
+  <button>FILTER</button>
+  <br>
+  <br>
+  <table id="mytable">
+    <th id="songtitle">Title</th>
+    <th id="songartist">Artist</th>
+    <th id="songgenre">Genre</th>
+    <th id="songyear">Year</th>
+    <tbody id="myactualtable"></tbody>
+  </table>
+  
+  
+  <script>
+    $.getJSON("https://skookuri.github.io/cs120hw5/songlist.json", function(data) {
+     
+      var arr = data.CATALOG.SONG;
+      //var tablebody = document.createElement('tbody');
+      
+      arr.forEach(function(list) {
+      	var newrow = document.getElementById("myactualtable").insertRow(-1);
+        newrow.innerHTML = "";
+        
+        var titlecell = newrow.insertCell(0);
+        titlecell.innerHTML = list.TITLE;
+  
+        var artistcell = newrow.insertCell(1);
+        artistcell.innerHTML = list.ARTIST;
+  
+        var genrecell = newrow.insertCell(2);
+        var genretable = document.createElement('table');
+        genrecell.appendChild(genretable);
+        
+        var arrgenre = list.GENRE;
+        
+        arrgenre.forEach(function(genrelist) {
+        	var genrerow = genretable.insertRow(-1);
+            genrerow.innerHTML = "";
+            
+            var genresubcell = genrerow.insertCell(0);
+            genresubcell.innerHTML = genrelist;
+        });
+  
+        var yearcell = newrow.insertCell(3);
+        yearcell.innerHTML = list.YEAR;
+      });
+      
+      
+      $(document).ready(function(){ 
+        $("button").click(function(){
+        	//$("#mytable td").hide();
+            
+            $("#myactualtable tr").filter(function() {
+                var value = $("select option:selected").text();
+                
+                if (value != "--SELECT GENRE--") {
+                	$(this).toggle($(this).text().indexOf(value) > -1);
+                } else {
+                	$(this).show();
+                }
+    		}); //toggle
+        }); //button
+      }); //document ready
+    }); //json
+  </script>
+</body>
+</html>
