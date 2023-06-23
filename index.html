@@ -6,29 +6,30 @@
 	<title>Unit 2 Problem Set 3</title>
     <style>
 		body {
-      		background-color: #7B9EA8;
-      		color: #000000;
+      		background-color: #000000;
+      		color: #7B9EA8;
       		text-align: center;
       		font-size: 30px;
     	}
         
         a {
-        	color: #000000;
+        	color: #7B9EA8;
             text-decoration: none;
         }
     
     	li {
         	padding: 20px;
         	border-radius: 67px;
-			background: linear-gradient(145deg, #84a9b4, #6f8e97);
+            
 			box-shadow:  5px 5px 10px #69868f,
              -5px -5px 10px #8db6c1;
     	}
     
     
     	li:hover {
-			background: linear-gradient(145deg, #6f8e97, #84a9b4);
         	cursor: pointer;
+            color: #fff;
+            transition: 0.3s;
     	}
     
     	ul {
@@ -46,11 +47,14 @@
     
     	div {
     		position: relative;
-			border: 5px solid #000000;
+			border: 5px solid #7B9EA8;
         	width: 600px; 
         	text-align: center; 
         	margin: auto;
         	padding: 10px;
+            box-shadow:  5px 5px 10px #69868f,
+             -5px -5px 10px #8db6c1;
+            
     	}
     
     	h1 a:hover {
@@ -80,6 +84,10 @@
   			div {
         		width: 70vw;
         	}
+            
+            li {
+            	width: 30vw;
+            }
 		}
     
    	 	@media only screen and (min-width: 165px) and (max-width: 240px) {
@@ -92,6 +100,18 @@
         	a {
     			font-size: 14vw;
   			}
+            
+            li {
+            	width: auto;
+            }
+            
+            h1 {
+            	font-size: 30vw;
+            }
+            
+            h2 {
+            	font-size: 25vw;
+            }
 		}
     
     	@media only screen and (max-width: 240px) {
@@ -116,4 +136,3 @@
 	</ul>
 </div>
 </body>
-</html>
