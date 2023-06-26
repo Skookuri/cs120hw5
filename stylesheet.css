@@ -23,11 +23,13 @@
     td:hover {
       background-color: #7B9EA8;
       color: #000000;
+      transition: 0.3s;
     }
 
     tr:hover {
       background-color: #B5C9CF;
       color: #000000; 
+      transition: 0.3s;
     }
 
     th {
