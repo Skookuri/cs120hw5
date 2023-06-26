@@ -46,6 +46,11 @@
         var year = document.createElement("p");
         year.innerHTML = "Released " + list.YEAR;
         newdiv.appendChild(year);
+        
+        var spotifylink = document.createElement("p");
+        spotifylink.innerHTML = `<iframe style="border-radius:12px" src="` + list.SPOTIFY + `" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`;
+        newdiv.appendChild(spotifylink);
+        
       });
     });
   </script>
