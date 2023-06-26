@@ -1,115 +1,113 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://skookuri.github.io/cs120hw5/stylesheet.css">
-  <title>Unit 2 Problem Set 3</title>
-  <style>
-  	body {
-    	text-align: left;
-    }
-  </style>
-</head>
-<body>
-
-  <pre id="display"></pre>
-
-  <script>
-    var songlist = {
-      "CATALOG": {
-        "SONG": [
-          {
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://skookuri.github.io/cs120hw5/stylesheet.css">
+    <title>Unit 2 Problem Set 3</title>
+    <style>
+      body {
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <pre id="display"></pre>
+    <script>
+      var songlist = {
+        "CATALOG": {
+          "SONG": [
+            {
             "TITLE": "Unconditional",
             "ARTIST": "Magdalena Bay",
             "GENRE": ["Synth-pop", "Electropop", "Indie pop", "LA pop", "Alt-pop"],
-            "YEAR": 2022
-          },
-          {
+            "YEAR": 2022,
+            "SPOTIFY": "https://open.spotify.com/embed/track/2gjrOwSGTDKpzoDdMCLr5s?utm_source=generator&theme=0"
+          }, {
             "TITLE": "Neon",
             "ARTIST": "Magdalena Bay",
             "GENRE": ["Synth-pop", "Electropop", "Indie pop", "LA pop", "Alt-pop"],
-            "YEAR": 2017
-          },
-          {
+            "YEAR": 2017,
+            "SPOTIFY": "https://open.spotify.com/embed/track/34YKjaZdPV6wLuEnQvx704?utm_source=generator&theme=0"
+          }, {
             "TITLE": "Top Dog",
             "ARTIST": "Magdalena Bay",
             "GENRE": ["Synth-pop", "Electropop", "Indie pop", "LA pop", "Alt-pop"],
-            "YEAR": 2023
-          },
-          {
+            "YEAR": 2023,
+            "SPOTIFY": "https://open.spotify.com/embed/track/2hGchv7KYaINz9Z1qzufNm?utm_source=generator&theme=0"
+          }, {
             "TITLE": "2 Wheel Drive",
             "ARTIST": "Magdalena Bay",
             "GENRE": ["Synth-pop", "Electropop", "Indie pop", "LA pop", "Alt-pop"],
-            "YEAR": 2023
-          },
-          {
+            "YEAR": 2023,
+            "SPOTIFY": "https://open.spotify.com/embed/track/3iVVphDZI6JJGvOpV6cjw6?utm_source=generator&theme=0"
+          }, {
             "TITLE": "Tonguetwister",
             "ARTIST": "Magdalena Bay",
             "GENRE": ["Synth-pop", "Electropop", "Indie pop", "LA pop", "Alt-pop"],
-            "YEAR": 2023
-          },
-          {
+            "YEAR": 2023,
+            "SPOTIFY": "https://open.spotify.com/embed/track/2WNXusoRfMx0toJi1YCuMl?utm_source=generator&theme=0"
+          }, {
             "TITLE": "Holod",
             "ARTIST": "Super Besse",
             "GENRE": ["Russian post-punk", "Belarusian indie", "Alternative rock", "Indie pop", "Indie rock", "Jangle pop"],
-            "YEAR": 2015
-          },
-          {
+            "YEAR": 2015,
+            "SPOTIFY": "https://open.spotify.com/embed/track/3uuZgHc57MBoBchsETeecJ?utm_source=generator&theme=0"
+          }, {
             "TITLE": "Pomostri Na Menia",
             "ARTIST": "Super Besse",
             "GENRE": ["Russian post-punk", "Belarusian indie", "Alternative rock", "Indie pop", "Indie rock", "Jangle pop"],
-            "YEAR": 2015
-          },
-          {
+            "YEAR": 2015,
+            "SPOTIFY": "https://open.spotify.com/embed/track/6PE35fVyQNfs6qCQ3BoJkP?utm_source=generator&theme=0"
+          }, {
             "TITLE": "Prikazano",
             "ARTIST": "Super Besse",
             "GENRE": ["Russian post-punk", "Belarusian indie", "Alternative rock", "Indie pop", "Indie rock", "Jangle pop"],
-            "YEAR": 2015
-          },
-          {
+            "YEAR": 2015,
+            "SPOTIFY": "https://open.spotify.com/embed/track/4VysohClJ2kqeQjvbArWEX?utm_source=generator&theme=0"
+          }, {
             "TITLE": "Bad Girls Club",
             "ARTIST": "Mexican Slum Rats",
             "GENRE": ["Socal indie"],
-            "YEAR": 2017
-          },
-          {
+            "YEAR": 2017,
+            "SPOTIFY": "https://open.spotify.com/embed/track/4v9ksxxzxEkuCUNVD5DwV3?utm_source=generator&theme=0"
+          }, {
             "TITLE": "Away",
             "ARTIST": "Mexican Slum Rats",
             "GENRE": ["Socal indie"],
-            "YEAR": 2017
-          },
-          {
+            "YEAR": 2017,
+            "SPOTIFY": "https://open.spotify.com/embed/track/27fsl9Gei4MNTXTUjnVArL?utm_source=generator&theme=0"
+          }, {
             "TITLE": "Mezzanine State",
             "ARTIST": "Mexican Slum Rats",
             "GENRE": ["Socal indie"],
-            "YEAR": 2023
-          },
-          {
+            "YEAR": 2023,
+            "SPOTIFY": "https://open.spotify.com/embed/track/7wpt5rh9sHcLFaBIAr4O6C?utm_source=generator&theme=0"
+          }, {
             "TITLE": "Can't Be Mine",
             "ARTIST": "Bad Nerves",
             "GENRE": ["English indie rock", "Action rock"],
-            "YEAR": 2020
-          },
-          {
+            "YEAR": 2020,
+            "SPOTIFY": "https://open.spotify.com/embed/track/4aoPib6gKVZVflxO3mQwLo?utm_source=generator&theme=0"
+          }, {
             "TITLE": "Baby Drummer",
             "ARTIST": "Bad Nerves",
             "GENRE": ["English indie rock", "Action rock"],
-            "YEAR": 2020
-          },
-          {
+            "YEAR": 2020,
+            "SPOTIFY": "https://open.spotify.com/embed/track/1HW8Eci2TSMF9EaVZHnNzj?utm_source=generator&theme=0"
+          }, {
             "TITLE": "Dreaming",
             "ARTIST": "Bad Nerves",
             "GENRE": ["English indie rock", "Action rock"],
-            "YEAR": 2020
+            "YEAR": 2020,
+            "SPOTIFY": "https://open.spotify.com/embed/track/48gnTFc9huozkHfH3xyii8?utm_source=generator&theme=0"
           }
-        ]
-      }
-    };
-
-    const strSongList = JSON.stringify(songlist, null, 2);
-    document.getElementById("display").textContent = strSongList;
-  </script>
-</body>
+          ]
+        }
+      };
+      const strSongList = JSON.stringify(songlist, null, 2);
+      document.getElementById("display").textContent = strSongList;
+    </script>
+  </body>
 </html>
