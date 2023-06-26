@@ -23,6 +23,7 @@
     <th id="songartist">Artist</th>
     <th id="songgenre">Genre</th>
     <th id="songyear">Year</th>
+    <th id="songlink">Spotify</th>
     <tbody id="myactualtable"></tbody>
   </table>
   
@@ -73,6 +74,9 @@
 
         var yearcell = newrow.insertCell(3);
         yearcell.innerHTML = list.YEAR;
+        
+        var spotifycell = newrow.insertCell(4);
+        spotifycell.innerHTML =  `<iframe style="border-radius:12px" src="` + list.SPOTIFY + `" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`;
       });
 
       $(document).ready(function(){ 
