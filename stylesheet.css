@@ -6,7 +6,6 @@ button, select {
     }
     
     button:hover {
-    	background-color: #7B9EA8;
         color: #000000;
         transition: 0.3s;
     }
