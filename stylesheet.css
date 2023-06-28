@@ -1,49 +1,55 @@
-   select {
-      color: #7B9EA8;
-      background-color: #000000;
-      border-color: #7B9EA8;
+button, select {
+		color: #7B9EA8;
+        background-color: #000000;
+      	border-color: #7B9EA8;
+      	cursor: pointer;
     }
-
-    button {
-      color: #7B9EA8;
-      background-color: #000000;
-      border-color: #7B9EA8;
+    
+    button:hover {
+    	background-color: #7B9EA8;
+        color: #000000;
+        transition: 0.3s;
     }
 
     body {
-      background-color: #000000;
-      color: #7B9EA8;
-      text-align: center;
+      	background-color: #000000;
+      	color: #7B9EA8;
+      	text-align: center;
     }
 
     table, td {
-      border: 1px solid #000000;
+      	border: 1px solid #000000;
+    }
+    
+    #mytable, button {
+    	box-shadow:  5px 5px 10px #69868f,
+             -5px -5px 10px #8db6c1;
     }
 
     td:hover {
-      background-color: #7B9EA8;
-      color: #000000;
-      transition: 0.3s;
+      	background-color: #B5C9CF;
+      	color: #000000;
+      	transition: 0.3s;
     }
 
-    tr:hover {
-      background-color: #B5C9CF;
-      color: #000000; 
-      transition: 0.3s;
+    td td:hover {
+      	background-color: #7B9EA8;
+      	color: #000000; 
+      	transition: 0.3s;
     }
 
     th {
-      font-size: 30px;
+      	font-size: 30px;
     }
 
     table {
-      font-family: arial, sans-serif;
-      border-collapse: collapse;
-      width: 100%;
+      	font-family: arial, sans-serif;
+      	border-collapse: collapse;
+      	width: 100%;
     }
 
     td, th {
-      border: 1px solid #7B9EA8;
-      text-align: left;
-      padding: 8px;
+      	border: 1px solid #7B9EA8;
+      	text-align: center;
+      	padding: 8px;
     }
