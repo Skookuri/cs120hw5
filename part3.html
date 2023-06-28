@@ -9,13 +9,12 @@
 </head>
 <body>
   <form action="javascript:void(0);">
-  <select id="genreSelect">
-    <option value="selectgenre">--SELECT GENRE--</option>
-  </select>
-  <br>
-  <br>
-  <button id="filterButton">FILTER</button>
-  <br>
+    <select id="genreSelect">
+      <option value="selectgenre">--SELECT GENRE--</option>
+    </select>
+    <br><br>
+    <button id="filterButton">FILTER</button>
+    <br>
   </form>
   <br>
   <table id="mytable">
@@ -28,68 +27,57 @@
   </table>
   
   <script>
-    $.getJSON("https://skookuri.github.io/cs120hw5/songlist.json", function(data) {
-      var arr = data.CATALOG.SONG;
-      var genres = [];
-
-      arr.forEach(function(list) {
-        list.GENRE.forEach(function(genre) {
-          if (!genres.includes(genre)) {
-            genres.push(genre);
-          }
-        });
-      });
-
-      var select = document.getElementById("genreSelect");
-      genres.forEach(function(genre) {
-        var option = document.createElement("option");
-        option.value = genre.toLowerCase().replace(/ /g, "");
-        option.text = genre;
-        select.appendChild(option);
-      });
-
-      arr.forEach(function(list) {
-        var newrow = document.getElementById("myactualtable").insertRow(-1);
-        newrow.innerHTML = "";
-
-        var titlecell = newrow.insertCell(0);
-        titlecell.innerHTML = list.TITLE;
-
-        var artistcell = newrow.insertCell(1);
-        artistcell.innerHTML = list.ARTIST;
-
-        var genrecell = newrow.insertCell(2);
-        var genretable = document.createElement('table');
-        genrecell.appendChild(genretable);
-
-        var arrgenre = list.GENRE;
-
-        arrgenre.forEach(function(genrelist) {
-          var genrerow = genretable.insertRow(-1);
-          genrerow.innerHTML = "";
-
-          var genresubcell = genrerow.insertCell(0);
-          genresubcell.innerHTML = genrelist;
-        });
-
-        var yearcell = newrow.insertCell(3);
-        yearcell.innerHTML = list.YEAR;
+    $(document).ready(function() {
+      $.getJSON("https://skookuri.github.io/cs120hw5/songlist.json", function(data) {
+        var arr = data.CATALOG.SONG;
+        var genres = [];
         
-        var spotifycell = newrow.insertCell(4);
-        spotifycell.innerHTML =  `<iframe style="border-radius:12px" src="` + list.SPOTIFY + `" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`;
-      });
-
-      $(document).ready(function(){ 
-        $("#filterButton").click(function(){
+        arr.forEach(function(list) {
+          list.GENRE.forEach(function(genre) {
+            if (!genres.includes(genre)) {
+              genres.push(genre);
+            }
+          });
+        });
+        
+        var select = $("#genreSelect");
+        genres.forEach(function(genre) {
+          select.append($("<option>", {
+            value: genre.toLowerCase().replace(/ /g, ""),
+            text: genre
+          }));
+        });
+        
+        arr.forEach(function(list) {
+          var newrow = $("#myactualtable").get(0).insertRow(-1);
+          newrow.innerHTML = "";
+          
+          newrow.insertCell(0).innerHTML = list.TITLE;
+          newrow.insertCell(1).innerHTML = list.ARTIST;
+          
+          var genrecell = newrow.insertCell(2);
+          var genretable = $("<table>").appendTo(genrecell);
+          
+          list.GENRE.forEach(function(genrelist) {
+            var genrerow = genretable.get(0).insertRow(-1);
+            genrerow.innerHTML = "";
+            genrerow.insertCell(0).innerHTML = genrelist;
+          });
+          
+          newrow.insertCell(3).innerHTML = list.YEAR;
+          newrow.insertCell(4).innerHTML = `<iframe style="border-radius:12px" src="${list.SPOTIFY}" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`;
+        });
+        
+        $("#filterButton").click(function() {
           $("#myactualtable tr").filter(function() {
             var value = $("#genreSelect option:selected").text();
             
             if (value != "--SELECT GENRE--") {
-              $(this).toggle($(this).text().indexOf(value) > -1);
-            } else {
-              $(this).show();
+              return $(this).text().indexOf(value) === -1;
             }
-          });
+            
+            return false;
+          }).toggle();
         });
       });
     });
